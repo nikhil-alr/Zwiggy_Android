@@ -1,59 +1,60 @@
 package com.example.zwiggy.getstarted.widgets
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.zwiggy.ui.theme.ZwiggyTheme
-import androidx.compose.ui.res.imageResource
-import androidx.compose.ui.res.painterResource
-import com.example.zwiggy.R
+import kotlinx.coroutines.delay
+import kotlin.time.Duration.Companion.seconds
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun TextAnimationView() {
 
-
-
-    Column(Modifier.padding(vertical = 10.dp)
-    ) {
-
-Row(verticalAlignment = Alignment.CenterVertically)
-{
-    Text(text = "Text",Modifier.padding(end = 5.dp), color = Color.Blue)
-    Surface(modifier = Modifier.width(3.dp).height(3.dp), color = Color.Blue, shape = CircleShape) {
-
-    }
-    Text(text = "Text",Modifier.padding(horizontal = 5.dp), color = Color.Blue)
-    Surface(modifier = Modifier.width(3.dp).height(3.dp), color = Color.Blue, shape = CircleShape) {
-
-    }
-    Text(text = "Text",Modifier.padding(horizontal = 5.dp), color = Color.Blue)
-}
-
-        Surface(modifier = Modifier.fillMaxWidth().height(1.dp), color = Color.Blue) {
+    val description = arrayOf("Discounts on foods", "Discount on drinks", "Discount on grocery")
+    var textIndex by remember { mutableIntStateOf(0) }
+    LaunchedEffect(Unit) {
+        while (true) {
+            delay(3.seconds)
+            textIndex = (textIndex + 1) % 3
 
         }
-        Text(text = "Text", color = Color.Blue)
+    }
+
+
+    Column(
+        Modifier.padding(top = 10.dp, bottom = 20.dp)
+    ) {
+
+        CategoryAnimatedView(textIndex)
+        Surface(
+            modifier = Modifier
+                .padding(vertical = 10.dp)
+                .fillMaxWidth()
+                .height(1.dp), color = Color.Gray
+        ) {
+
+        }
+        DescriptionAnimatedView(description[textIndex])
 
     }
+
 }
+
+
 
 
 @Preview()

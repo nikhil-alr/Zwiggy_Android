@@ -25,7 +25,7 @@ fun GetStarted() {
 
 Box()
     {
-        //VideoView()
+        VideoView()
         Column(
             Modifier
                 .fillMaxSize(),
@@ -37,7 +37,7 @@ Box()
                         brush = Brush.verticalGradient(colors = listOf(
                             Color.Transparent,
                             Color.Black
-                        ), startY = 0f, endY = 500f)
+                        ), startY = 0f, endY = 800f)
                     )){
                 Column(
                     Modifier
