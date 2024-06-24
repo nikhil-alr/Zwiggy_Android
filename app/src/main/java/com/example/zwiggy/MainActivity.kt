@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.zwiggy.dashbaord.Dashboard
 import com.example.zwiggy.getstarted.GetStarted
 import com.example.zwiggy.ui.theme.ZwiggyTheme
 
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
             ZwiggyTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    GetStarted()
+                    Dashboard()
                 }
             }
         }
@@ -44,6 +45,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     ZwiggyTheme {
-        Greeting("Android")
+       GetStarted()
     }
 }
