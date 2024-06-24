@@ -13,26 +13,46 @@ import androidx.compose.ui.unit.dp
 import com.example.zwiggy.ui.theme.ZwiggyTheme
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.SemanticsPropertyKey
+import androidx.compose.ui.semantics.SemanticsPropertyReceiver
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.zwiggy.R
 
+val DrawableId = SemanticsPropertyKey<Int>("DrawableResId")
+var SemanticsPropertyReceiver.drawableId by DrawableId
 
 @Composable
 fun LogoView() {
 
-    Column {
+    Column(Modifier
+        .semantics {
+            this.contentDescription = "logo_view"
+        }) {
 
         Image(
             painter = painterResource(R.drawable.logo),
             contentDescription = "logo",
             contentScale = ContentScale.Crop,
+
             modifier = Modifier
                 .size(140.dp)
                 .padding(vertical = 10.dp)
+                .semantics {
+                       this.contentDescription = "logo_image"
+                        drawableId = R.drawable.logo
+                }
         )
 
-        Text(text = stringResource(id = R.string.app_name), color = Color.White , fontSize = 30.sp, fontWeight = FontWeight.Bold )
+        Text(text = stringResource(id = R.string.app_name),
+            color = Color.White ,
+            fontSize = 30.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.semantics {
+            this.contentDescription = "logo_text"
+        })
 
 
     }

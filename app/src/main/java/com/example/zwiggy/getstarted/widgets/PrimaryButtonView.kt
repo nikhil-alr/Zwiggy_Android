@@ -19,6 +19,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInteropFilter
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -39,6 +41,9 @@ fun PrimaryButtonView() {
             .height(50.dp)
             .clip(RoundedCornerShape(10.dp))
             .background(Orange)
+            .semantics {
+                this.contentDescription = "primary_button_view"
+            }
             .pointerInteropFilter {
                 when (it.action) {
                     MotionEvent.ACTION_DOWN -> {
@@ -53,8 +58,6 @@ fun PrimaryButtonView() {
         ,contentAlignment = Center
     ) {
         Text(text = "Get started",Modifier.padding(horizontal = 5.dp),fontSize = 18.sp,fontWeight = FontWeight.Bold ,color = Color.White)
-
-
     }
 }
 

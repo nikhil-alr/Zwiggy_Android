@@ -11,6 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.SemanticsPropertyKey
+import androidx.compose.ui.semantics.SemanticsPropertyReceiver
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.zwiggy.ui.theme.ZwiggyTheme
@@ -21,6 +24,8 @@ import com.example.zwiggy.ui.theme.Orange
 @Composable
 fun CategoryAnimatedView(textIndex: Int) {
     Row(verticalAlignment = Alignment.CenterVertically)
+
+
     {
         if (textIndex == 0) HighlightedText("Food") else NormalText(text = "Food")
         Surface(
@@ -45,15 +50,26 @@ fun CategoryAnimatedView(textIndex: Int) {
     }
 }
 
+val DayStatusKey = SemanticsPropertyKey<String>("DayStatusKey")
+var SemanticsPropertyReceiver.dayStatusProperty by DayStatusKey
+
+
 @Composable
 private fun HighlightedText(text: String) {
     Text(
         text = text,
         fontWeight = FontWeight.Bold,
         fontSize = 22.sp,
-        color = Color.White
+        color = Color.White,
+                modifier = Modifier.semantics {
+            dayStatusProperty = "bold$text"
+        }
     )
 }
+
+
+
+
 
 @Composable
 private fun NormalText(text: String) {

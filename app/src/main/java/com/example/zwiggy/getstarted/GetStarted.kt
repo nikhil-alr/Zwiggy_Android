@@ -22,7 +22,6 @@ import com.example.zwiggy.ui.theme.ZwiggyTheme
 
 @Composable
 fun GetStarted() {
-
 Box()
     {
         VideoView()

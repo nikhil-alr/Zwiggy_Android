@@ -7,7 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.viewinterop.AndroidView
+import com.example.zwiggy.R
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
@@ -18,7 +21,10 @@ import com.google.android.exoplayer2.util.Util
 @Composable
 fun VideoView(){
 
-    Box(Modifier.fillMaxSize(),) {
+    Box(Modifier.fillMaxSize()
+        .semantics {
+            this.contentDescription = "video_view"
+        }) {
 
         // Fetching the Local Context
         val mContext = LocalContext.current
@@ -49,6 +55,8 @@ fun VideoView(){
             StyledPlayerView(context).apply {
                 //this.useController = false
                 //this.hideController()
+                id = R.id.videoViewId
+                tag = "video"
                 player = mExoPlayer
                 this.player?.volume = 0f
                 this.player?.playWhenReady = true
