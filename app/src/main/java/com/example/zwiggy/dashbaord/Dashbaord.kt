@@ -13,6 +13,7 @@ fun Dashboard() {
 @Preview(showSystemUi = true)
 @Composable
 fun GetStartedPreview() {
+
     ZwiggyTheme {
         Dashboard()
     }
