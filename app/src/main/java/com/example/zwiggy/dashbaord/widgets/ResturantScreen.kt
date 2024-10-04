@@ -1,5 +1,6 @@
 package com.example.zwiggy.dashbaord.widgets
 
+
 import RestaurantCardView
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -30,25 +31,41 @@ private val listModifier = Modifier
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun  RestaurantListView(children: @Composable () -> Unit,data:List<String> = sampleData)
+fun  RestaurantScreen()
 {
-
-
-        LazyColumn(listModifier,verticalArrangement = Arrangement.spacedBy(10.dp),) {
-            items(sampleData.size) { item ->
-                children()
-            }
-        }
+    val sheetState = rememberModalBottomSheetState()
+    var showSheet by remember {
+        mutableStateOf(false)
     }
 
+    Column {
 
+        Button(onClick = {showSheet = true }) {
+
+        }
+
+        RestaurantListView({ RestaurantCardView() })
+    }
+
+    if (showSheet)
+    {
+        ModalBottomSheet(sheetState = sheetState,
+            onDismissRequest = {showSheet = false}) {
+            FilterScreen {
+
+            }
+
+        }
+
+    }
+}
 
 
 @Preview(showSystemUi = true)
 @Composable
-fun RestaurantListViewPreview()
+fun RestaurantScreenPreview()
 {
     ZwiggyTheme {
-        RestaurantListView({})
+        RestaurantScreen()
     }
 }

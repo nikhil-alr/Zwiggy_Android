@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Zwiggy</string>
+    <string name="no_data_present">No Data Present</string>
 </resources>

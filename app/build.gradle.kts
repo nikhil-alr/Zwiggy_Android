@@ -56,6 +56,7 @@ android {
 dependencies {
 
     implementation("androidx.core:core-ktx:1.10.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2") // Or latest version
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.0")
     implementation(platform("androidx.compose:compose-bom:2023.08.00"))
@@ -69,9 +70,16 @@ dependencies {
     implementation("androidx.media3:media3-test-utils:1.3.1")
     implementation("androidx.paging:paging-common-android:3.3.0")
 
+    implementation ("androidx.compose.ui:ui-tooling-preview:1.6.7")
+    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose-android:2.8.4")
+
     testImplementation ("androidx.compose.ui:ui-test-junit4")
     testImplementation("org.robolectric:robolectric:4.12")
-    implementation ("androidx.compose.ui:ui-tooling-preview:1.6.7")
+
 
 
     testImplementation("junit:junit:4.13.2")

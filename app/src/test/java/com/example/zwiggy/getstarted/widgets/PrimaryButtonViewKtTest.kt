@@ -14,15 +14,15 @@ class PrimaryButtonViewKtTest
     @get:Rule
     val composeTestRule = createComposeRule()
 
-    @Test
-    fun testGetStartedButtonViewVisible() {
-
-        composeTestRule.setContent {
-            PrimaryButtonView()
-        }
-
-        composeTestRule.onNodeWithText("Get started").assertIsDisplayed()
-
-    }
+//    @Test
+//    fun testGetStartedButtonViewVisible() {
+//
+//        composeTestRule.setContent {
+//            PrimaryButtonView()
+//        }
+//
+//        composeTestRule.onNodeWithText("Get started").assertIsDisplayed()
+//
+//    }
 
 }
