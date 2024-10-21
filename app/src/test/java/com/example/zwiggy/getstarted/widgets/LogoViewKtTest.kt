@@ -32,6 +32,8 @@ class LogoViewKtTest {
     private fun hasDrawable(imageName: Int): SemanticsMatcher =
         SemanticsMatcher.expectValue(DrawableId, imageName)
 
+
+
     @Test
     fun testLogoImage() {
        

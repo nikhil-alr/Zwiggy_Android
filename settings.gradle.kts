@@ -15,4 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Zwiggy"
 include(":app")
- 
+include(":data")
+include(":core")
+include(":domain")

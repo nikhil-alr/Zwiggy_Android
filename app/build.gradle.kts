@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -71,11 +73,14 @@ dependencies {
     implementation("androidx.paging:paging-common-android:3.3.0")
 
     implementation ("androidx.compose.ui:ui-tooling-preview:1.6.7")
-    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose-android:2.8.4")
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation(project(":data"))
+    implementation(project(":core"))
+    implementation(project(":domain"))
+
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 
     testImplementation ("androidx.compose.ui:ui-test-junit4")
     testImplementation("org.robolectric:robolectric:4.12")
@@ -95,4 +100,8 @@ dependencies {
 
 
 
+}
+
+kapt {
+    correctErrorTypes = true
 }
