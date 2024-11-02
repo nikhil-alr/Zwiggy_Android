@@ -10,8 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.zwiggy.features.dashbaord.Dashboard
-import com.example.zwiggy.features.getstarted.GetStarted
+import com.example.feature.TestView
+import com.example.feature.dashbaord.Dashboard
+
+import com.example.feature.getstarted.GetStarted
 
 
 import com.example.zwiggy.ui.theme.ZwiggyTheme

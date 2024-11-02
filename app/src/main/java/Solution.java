@@ -84,7 +84,7 @@
 //import com.example.zwiggy.commonui.PrimaryButtonView
 //import com.example.zwiggy.dashbaord.widgets.RestaurantCardViewShimmer
 //import com.example.zwiggy.dashbaord.widgets.RestaurantListView
-//import com.example.zwiggy.ui.theme.ZwiggyTheme
+//import com.example.feature.ui.theme.ZwiggyTheme
 //
 //
 //@Composable
