@@ -1,4 +1,5 @@
-package com.example.feature.getstarted
+package com.example.zwiggy.dashbaord
+
 
 import android.util.Log
 import android.widget.VideoView
@@ -39,7 +40,7 @@ class GetStartedKtTest {
         composeTestRule.setContent {
             PrimaryButtonView()
         }
-       val a=  composeTestRule.onNodeWithContentDescription("primary_button_view").fetchSemanticsNode().config
+        val a=  composeTestRule.onNodeWithContentDescription("primary_button_view").fetchSemanticsNode().config
         //node.fetchSemanticsNode().config.getOrNull(0)?.color
 
         print("")
