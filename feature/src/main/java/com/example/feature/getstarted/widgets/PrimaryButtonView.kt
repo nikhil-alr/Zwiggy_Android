@@ -44,7 +44,6 @@ fun PrimaryButtonView() {
             .background(Orange)
             .semantics {
                 this.contentDescription = "primary_button_view"
-                "aaa" = ""
 
             }
             .pointerInteropFilter {
